@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<p><b>Most Common Words are:</b><br>
+    {%for i  in m_common%}
+    {{i}}<br>
+    {% endfor%}
+<br><b>Total number of lines: </b>{{linecount}}<br>
+   <b> Total number of words : </b>{{wordcount}}<br>
+   <b> Number of Unique words : </b>{{u_words}}
+
+</p>
+{% endblock %}
