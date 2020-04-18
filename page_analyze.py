@@ -10,7 +10,7 @@ def unique_words(words):
     for i in words:
         if words[i] == 1:
             unique.append(i)
-    return(unique)
+    return unique
 
 #function to remove symbols
 def rem_symbol(sent):
@@ -46,5 +46,3 @@ def page_analyze(url):
     u_words=unique_words(words)
     return(mostcommon,len(linecount),len(wordcount),len(u_words))
 
-url="https://www.tutorialspoint.com/python3/python_overview.htm/"
-page_analyze(url)
