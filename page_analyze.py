@@ -4,7 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-#function to find unique words
+
+
+# function to find unique words
 def unique_words(words):
     unique = []
     for i in words:
@@ -12,15 +14,16 @@ def unique_words(words):
             unique.append(i)
     return unique
 
-#function to remove symbols
-def rem_symbol(sent):
-    return(re.sub(r'[^A-Za-z ]+', '',sent)) # removing symbols)
 
-#function to remove stop words
+# function to remove symbols
+def rem_symbol(sent):
+    return  re.sub(r'[^A-Za-z ]+', '', sent)  # removing symbols)
+
+
+# function to remove stop words
 def rem_stopwords(example_sent):
     stop_words = set(stopwords.words('english'))
     word_tokens = word_tokenize(example_sent)
-    #filtered_sentence = [w for w in word_tokens if not w in stop_words]
     filtered_sentence = []
     for w in word_tokens:
         if w not in stop_words:
@@ -37,12 +40,11 @@ def page_analyze(url):
     for s in my_soup.findAll('p'):
         for line in s.text.split((".")):
             linecount.append(line)
-            line=rem_symbol(line) #removes all punctuations and symbols
-            line = rem_stopwords(line)#remove stopwords
+            line = rem_symbol(line)  # removes all punctuations and symbols
+            line = rem_stopwords(line)  # removes stopwords
             for word in line:
                 wordcount.append(word)
-    mostcommon= Counter(wordcount).most_common(5)
-    words=Counter(wordcount)
-    u_words=unique_words(words)
-    return(mostcommon,len(linecount),len(wordcount),len(u_words))
-
+    mostcommon = Counter(wordcount).most_common(5)
+    words = Counter(wordcount)
+    u_words = unique_words(words)
+    return (mostcommon, len(linecount), len(wordcount), len(u_words))
