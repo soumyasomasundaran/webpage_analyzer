@@ -2,7 +2,7 @@
 {% block content %}
 
    <form action="{{url_for('report')}}">
-       <div id="list">
+       <div class="list">
            <p><b>The web page analyzer, analyzes a web page and prints the following information:</b><br>
            <ul>
            <li> Number of words</li>
@@ -14,6 +14,17 @@
     <input id="url" type="text" name="address" >
     <input id="submit" type="submit">
 </form>
+
+<div id="container">
+    <h6><b>Example formats</b></h6>
+    <ul class="list" style="list-style-type:none;">
+        <li> &#10060;'google' </li>
+        <li> &#10060;'google.com' </li>
+        <li>&#10004;'http://google.com' </li>
+        <li>&#10004;'https://google.com' </li>
+        <li>&#10060; 'http://google'  </li>
+        </ul>
+</div>
 
 
 {% endblock %}

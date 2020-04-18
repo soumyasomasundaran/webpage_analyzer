@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
 import page_analyze
+import validateurl
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,7 +10,9 @@ def index():
 @app.route('/report.html')
 def report():
     url_input= request.args.get('address')
-    if url_input:
+    print("url is ",url_input)
+    url_valid=validateurl.urlcheck(url_input)
+    if url_valid==True:
         report=page_analyze.page_analyze(url_input)
         mostcommon=report[0]
         m_common=[]
@@ -20,7 +23,6 @@ def report():
         u_words=report[3]
         return(render_template('report.html',m_common=m_common,linecount=linecount,wordcount=wordcount,u_words=u_words))
     else:
-        print("HI")
         error="Not a valid link"
         return(render_template('error.html'))
 if __name__ == '__main__':

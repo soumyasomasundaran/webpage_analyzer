@@ -7,8 +7,11 @@ body{
 background-color:#e6f7ff;
 margin-top:20px;
 }
-#list,#error{
-margin-top:30px;
+.list,#error{
+margin-top:40px;
 margin-left:10px;
 }
+#container{
+margin-top:40px;
+margin-left:10px;}
 
