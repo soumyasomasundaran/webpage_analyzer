@@ -16,10 +16,6 @@
 * html,css,nltk 
 
 
-## Few things I learned by doing this project:
-* How to use python Flask,BeautifulSoup
-* Remove stopwords using nltk
-* How to validate a URL format using Regular Expression
 
 
 
